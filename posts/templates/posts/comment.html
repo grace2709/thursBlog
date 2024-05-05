@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block tile %}  Add  a comment {% endblock %}
+
+{% block content %}
+{% if comment %}
+
+    <h2>Your comment has been added</h2>
+    <a href="{{ post.get_absolute_url }}">Back to Post</a>
+    {% else %}
+
+    {% include "post/comment_form.html" %}
+    {% endif %}
+
+{% endblock %}

@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-xz5&5rt(_+0&vpz=1u3_l$a=6zwl18v@-z^+*h(ih1*vv!^@de
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+SITE_ID = 1
 
 # Application definition
 
@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "posts",
+    "taggit",
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
+    "django.contrib.postgres",
+
+
 ]
 
 MIDDLEWARE = [
@@ -54,7 +61,8 @@ ROOT_URLCONF = "thursBlog.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / 'templates']
+        ,
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -75,8 +83,10 @@ WSGI_APPLICATION = "thursBlog.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "posts",
+        "USER":"posts",
+        "PASSWORD":"chiamaka",
     }
 }
 
@@ -116,8 +126,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
-
+STATICFILES_DIRS =[
+    BASE_DIR / "static"
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER="canyanwu625@gmail.com"
+EMAIL_HOST_PASSWORD ='mljn uzel qsxb vtge'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
