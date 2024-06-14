@@ -85,6 +85,7 @@ WSGI_APPLICATION = "thursBlog.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
+        git add .
         "NAME":os.path.join(BASE_DIR, 'db.sqlite3'),
 
     }
